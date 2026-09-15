@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+.flex-col-center {
+  @apply flex flex-col items-center;
+}
+
+.flex-row-center {
+  @apply flex flex-row items-center;
+}
+
+@theme {
+  --color-yellow: #e7d393;
+  --color-white-100: #efefef;
+  --font-sans: "Mona Sans", sans-serif;
+  --font-modern-negra: "Modern Negra", sans-serif;
+  --font-serif: "DM Serif Text", serif;
+}
+
+html,
+body {
+  width: 100%;
+  height: auto;
+  background-color: black;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  color: white;
+}
+
+@utility masked-img {
+  mask-image: url("/images/mask-img.png");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: 50%;
+}
+
+@utility radial-gradient {
+    background: radial-gradient(
+            circle 35rem at 50% 75%,
+            #434343 0%,
+            #000 50%,
+            transparent 100%
+    );
+}
+
+@layer base {
+  /* --- H1 Styles --- */
+  h1 {
+    @apply text-2xl font-bold tracking-tight; /* Small Mobile default */
+    @apply sm:text-3xl; /* Standard Mobile */
+    @apply md:text-4xl; /* Tablet */
+    @apply lg:text-5xl; /* Desktop */
+  }
+
+  /* --- H2 Styles --- */
+  h2 {
+    @apply text-xl font-semibold; /* Small Mobile default */
+    @apply sm:text-2xl; /* Standard Mobile */
+    @apply md:text-3xl; /* Tablet */
+    @apply lg:text-4xl; /* Desktop */
+  }
+
+  /* --- Paragraph Styles --- */
+  p {
+    @apply text-xs leading-relaxed; /* Small Mobile */
+    @apply sm:text-sm; /* Standard Mobile */
+    @apply md:text-base; /* Tablet & Desktop */
+  }
+
+  /* --- Button Styles --- */
+  button {
+    @apply text-xs font-medium transition-colors; /* Small Mobile */
+    @apply sm:text-sm; /* Standard Mobile & Tablet */
+    @apply lg:text-base; /* Desktop */
+  }
+}
+
+@layer components {
+  main {
+    @apply flex flex-col items-center w-screen h-auto;
+  }
+
+  nav {
+    @apply justify-between w-full bg-black/40 h-35 overflow-hidden capitalize z-30 fixed;
+
+    div {
+      @apply h-full w-[35%] flex justify-center items-center;
+    }
+
+    img {
+      @apply w-[22%] h-[45%];
+    }
+
+    h1 {
+      @apply text-xl font-bold;
+    }
+
+    a {
+      @apply text-nowrap;
+    }
+
+    ul {
+      @apply h-full w-[65%];
+    }
+  }
+
+  .bg-img {
+    @apply bg-[url('/images/noise.png')] inset-0 absolute size-full;
+  }
+  #hero {
+    @apply capitalize w-full relative min-h-dvh pt-44 z-10;
+  }
+
+  .hero-content {
+    @apply flex flex-col items-center justify-center w-full gap-5;
+  }
+
+  .hero-heading-wrapper {
+    @apply w-full;
+  }
+
+  .hero-para-wrapper {
+    @apply w-[90%];
+  }
+
+  #heading {
+    @apply w-full uppercase text-center tracking-wide text-7xl font-bold;
+  }
+
+  #para {
+    @apply mt-2 w-full tracking-tighter text-center;
+  }
+
+  video {
+    /* @apply w-full h-1/2  bottom-0 left-0  object-cover; */
+  }
+}
