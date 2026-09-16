@@ -4,6 +4,7 @@ import Cocktails from "./sections/Cocktails";
 import Hero from "./sections/Hero";
 import Navbar from "./sections/Navbar";
 import Menu from "./sections/Menu";
+import Footer from "./sections/Footer";
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <About />
       <Art />
       <Menu />
+      <Footer />
     </main>
   );
 };

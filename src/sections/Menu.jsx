@@ -1,49 +1,110 @@
-import {allCocktails} from '../constants';
-import {useState} from 'react';
+import { useGSAP } from "@gsap/react";
+import { allCocktails } from "../constants";
+import { useState } from "react";
+import gsap from "gsap";
 
 const Menu = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-    const [currentIndex, setCurrentIndex] = useState(0);
+  const nextCocktail = () => {
+    setCurrentIndex((prev) => prev + 1);
+  };
 
-    const nextCocktail = () => {
-setCurrentIndex(prev => prev + 1);
-    };
+  const prevCocktail = () => {
+    setCurrentIndex((prev) => prev - 1);
+  };
 
-    const prevCocktail = () => {
-setCurrentIndex(prev => prev - 1);
-    };
+  const cocktail = (i) => allCocktails[i];
 
-    const cocktail = (i) => allCocktails[i];
+  useGSAP(() => {
+    gsap.fromTo(
+      "#cocktail",
+      { opacity: 0, xPercent: -100 },
+      {
+        xPercent: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power1.inOut",
+      },
+    );
+  }, [currentIndex]);
 
   return (
-    <section id='menu' className='flex-col-center justify-center h-auto w-full'>
-        <ul className='grid grid-col-2 justify-items-center'>
-            {
-                allCocktails.map((ele, i) => {
-                    <li className='flex-row-center  justify-center captalize'>
-<h2>{ele?.name}</h2>
-                    </li>
-                })
-            }
-        </ul>
+    <section
+      id="menu"
+      className="flex-col-center bg-amber-00 pt-10 justify-center h-auto w-full"
+    >
+        <img className="rotate-180 relative size-[40%] -right-40" src="images/slider-left-leaf.png" />
+      <ul className="grid grid-cols-2 w-full justify-items-center h-40 gap-2">
+        {allCocktails?.map((ele, i) => (
+          <li
+            key={i}
+            className={`flex-row-center border-b-2 w-full h-[80%] justify-center ${currentIndex === i ? "text-white" : "text-gray-400"}`}
+          >
+            <h2>{ele?.name}</h2>
+          </li>
+        ))}
+      </ul>
 
-        <div className='flex-row-center justify-around w-full h-30'>
-            <div className='flex-col-center w-[20%]'>
-                {/* <h2>{cocktail(currentIndex - 1)?.name}</h2> */}
-            <img onClick={() => currentIndex === 0 ? setCurrentIndex(allCocktails.length - 1) : prevCocktail()} src='/images/left-arrow.png'/>
-            </div>
-            <div className='flex-col-center w-[20%]'>
-                {/* <h2>{cocktail(currentIndex + 1)?.name}</h2> */}
-            <img onClick={() => currentIndex === allCocktails.length - 1 ? setCurrentIndex(0) : nextCocktail()}
-            src='/images/right-arrow.png'/>
-            </div>
+      <div className="flex-row-center justify-between w-full text-start h-30">
+        <div className="flex-col-center items-start w-fit">
+          <h2>
+            {currentIndex === 0
+              ? cocktail(allCocktails.length - 1)?.name
+              : cocktail(currentIndex - 1)?.name}
+          </h2>
+          <img
+            onClick={() =>
+              currentIndex === 0
+                ? setCurrentIndex(allCocktails.length - 1)
+                : prevCocktail()
+            }
+            src="/images/right-arrow.png"
+          />
+        </div>
+        <div className="flex-col-center items-start w-fit">
+          <h2>
+            {currentIndex === allCocktails.length - 1
+              ? cocktail(0)?.name
+              : cocktail(currentIndex + 1)?.name}
+          </h2>
+          <img
+            onClick={() =>
+              currentIndex === allCocktails.length - 1
+                ? setCurrentIndex(0)
+                : nextCocktail()
+            }
+            src="/images/left-arrow.png"
+          />
+        </div>
+      </div>
+
+      <div className="w-[95%] h-150 radial-gradient [--gradient-size:30rem] [--gradient-y:35%] relative">
+        <div className="cocktail flex items-end absolute justify-center w-full h-[55%]">
+          <img
+            src={cocktail(currentIndex)?.image}
+            id="cocktail"
+            className="object-contain size-[95%] object-center "
+          />
         </div>
 
-        	<div className="cocktail">
-		 <img src={cocktail(currentIndex)?.image} className="object-contain"/>
-		</div>
+        <div className="absolute bottom-0 h-[40%] flex-col-center gap-4 w-full">
+          <div className="flex flex-col h-[30%] w-full gap-3">
+            <p>Recipe For:</p>
+            <h2>{cocktail(currentIndex).name}</h2>
+          </div>
+          <div className="h-[70%] flex flex-col items-start gap-2">
+            <h1>{cocktail(currentIndex).title}</h1>
+            <p className="text-[16px] text-start tracking-tight">
+              {cocktail(currentIndex).description}
+            </p>
+          </div>
+        </div>
+      </div>
+      
+<img src="images/slider-right-leaf.png" className="rotate-180 size-[30%] relative -left-48" />
     </section>
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

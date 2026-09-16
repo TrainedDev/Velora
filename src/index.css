@@ -35,7 +35,7 @@ body {
 
 @utility radial-gradient {
     background: radial-gradient(
-            circle 35rem at 50% 75%,
+            circle var(--gradient-size, 35rem) at 50% var(--gradient-y, 80%),
             #434343 0%,
             #000 50%,
             transparent 100%
