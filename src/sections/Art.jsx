@@ -2,16 +2,21 @@ import { useGSAP } from "@gsap/react";
 import { featureLists } from "../constants";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import gsap from "gsap";
+import { useMediaQuery } from "react-responsive";
 
 gsap.registerPlugin(ScrollTrigger);
 const Art = () => {
+  const isMobile = useMediaQuery({ maxWidth: '640px'})
+
   useGSAP(() => {
+    const start = isMobile ? "25% 18%": "20% 25%"
+    const end = isMobile ? "bottom top" : "bottom top"
     gsap
       .timeline({
         scrollTrigger: {
           trigger: "#art-text",
-          start: "20% 25%",
-          end: "bottom top",
+          start,
+          end,
           // markers: true,
           scrub: 1,
           pin: true,
@@ -30,7 +35,7 @@ const Art = () => {
       })
       .to("#art-img", {
         scale: 1,
-        maskSize: "300%",
+        maskSize: "500%",
         duration: 1,
         maskPosition: "center",
         ease: "power1.inOut",
@@ -41,17 +46,17 @@ const Art = () => {
     <>
       <section
         id="art-text"
-        className="w-full flex-col-center justify-start h-auto capitalize radial-gradient"
+        className="w-full flex-col-center justify-start h-auto capitalize radial-gradient [--gradient-size:20rem] [--gradient-y:75%]"
       >
         <div className="flex-col-center items-center relative w-full min-h-dvh">
           <div className="flex absolute justify-center items-end w-full h-[65%]">
             <h1
               id="art-heading"
-              className="absolute tracking-widest font-extrabold h-[60%] w-full flex-row-center justify-center text-6xl"
+              className="absolute tracking-widest font-extrabold h-[60%] w-full flex-row-center justify-center text-3xl"
             >
               the art
             </h1>
-            <div className="absolute overflow-hidden rounded-[9%] flex items-end justify-center h-[75%] w-full">
+            <div className="absolute overflow-hidden rounded-[7%] flex items-end justify-center h-[60%] w-full">
               <img
                 id="art-img"
                 className="masked-img size-full object-center object-cover"
@@ -77,10 +82,10 @@ const Art = () => {
           </div>
         </div>
       </section>
-      <div className="flex-col-center relative justify-end w-full h-7 text-center gap-5">
-        <h1 className="w-2/3">made with craft, poured with passion</h1>
+      <div className="flex-col-center relative capitalize justify-end w-[80%] h-20 text-center gap-5">
+        <h1 className="w-full">made with craft, poured with passion</h1>
 
-        <p className="w-3/4 text-start">
+        <p className="w-full text-start">
           this isn't just a drink.it's a carefully crafted moment made just for
           you.
         </p>

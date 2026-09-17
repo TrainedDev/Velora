@@ -14,6 +14,7 @@
   --font-sans: "Mona Sans", sans-serif;
   --font-modern-negra: "Modern Negra", sans-serif;
   --font-serif: "DM Serif Text", serif;
+  --breakpoint-xs: 20rem;
 }
 
 html,
@@ -34,18 +35,18 @@ body {
 }
 
 @utility radial-gradient {
-    background: radial-gradient(
-            circle var(--gradient-size, 35rem) at 50% var(--gradient-y, 80%),
-            #434343 0%,
-            #000 50%,
-            transparent 100%
-    );
+  background: radial-gradient(
+    circle var(--gradient-size, 35rem) at 50% var(--gradient-y, 80%),
+    #434343 0%,
+    #000 50%,
+    transparent 100%
+  );
 }
 
 @layer base {
   /* --- H1 Styles --- */
   h1 {
-    @apply text-2xl font-bold tracking-tight; /* Small Mobile default */
+    @apply text-[13px] font-bold tracking-tight; /* Small Mobile default */
     @apply sm:text-3xl; /* Standard Mobile */
     @apply md:text-4xl; /* Tablet */
     @apply lg:text-5xl; /* Desktop */
@@ -53,7 +54,7 @@ body {
 
   /* --- H2 Styles --- */
   h2 {
-    @apply text-xl font-semibold; /* Small Mobile default */
+    @apply text-[13px] font-semibold; /* Small Mobile default */
     @apply sm:text-2xl; /* Standard Mobile */
     @apply md:text-3xl; /* Tablet */
     @apply lg:text-4xl; /* Desktop */
@@ -61,14 +62,14 @@ body {
 
   /* --- Paragraph Styles --- */
   p {
-    @apply text-xs leading-relaxed; /* Small Mobile */
+    @apply text-[11px] leading-relaxed; /* Small Mobile */
     @apply sm:text-sm; /* Standard Mobile */
     @apply md:text-base; /* Tablet & Desktop */
   }
 
   /* --- Button Styles --- */
   button {
-    @apply text-xs font-medium transition-colors; /* Small Mobile */
+    @apply text-[10px] font-medium transition-colors; /* Small Mobile */
     @apply sm:text-sm; /* Standard Mobile & Tablet */
     @apply lg:text-base; /* Desktop */
   }
@@ -80,26 +81,22 @@ body {
   }
 
   nav {
-    @apply justify-between w-full bg-black/40 h-35 overflow-hidden capitalize z-30 fixed;
+    @apply justify-between w-full bg-black/40 h-20 overflow-hidden capitalize z-30 fixed;
 
     div {
-      @apply h-full w-[35%] flex justify-center items-center;
+      @apply h-full w-full gap-2 flex justify-center items-center;
     }
 
     img {
-      @apply w-[22%] h-[45%];
-    }
-
-    h1 {
-      @apply text-xl font-bold;
+      @apply w-[9%] h-[50%];
     }
 
     a {
-      @apply text-nowrap;
+      @apply text-nowrap w-full text-[11px];
     }
 
     ul {
-      @apply h-full w-[65%];
+      @apply h-full w-full flex justify-center items-center text-[13px] gap-2 ;
     }
   }
 
@@ -107,7 +104,7 @@ body {
     @apply bg-[url('/images/noise.png')] inset-0 absolute size-full;
   }
   #hero {
-    @apply capitalize w-full relative min-h-dvh pt-44 z-10;
+    @apply capitalize w-full relative min-h-dvh z-10 pt-22;
   }
 
   .hero-content {
@@ -123,14 +120,22 @@ body {
   }
 
   #heading {
-    @apply w-full uppercase text-center tracking-wide text-7xl font-bold;
+    @apply w-full uppercase text-center tracking-wide text-4xl font-semibold;
   }
 
   #para {
-    @apply mt-2 w-full tracking-tighter text-center;
+    @apply w-full tracking-wide text-start;
   }
 
-  video {
-    /* @apply w-full h-1/2  bottom-0 left-0  object-cover; */
+  .footer {
+    h1 {
+      @apply  w-full flex items-center justify-center tracking-widest uppercase ;
+    }
+    h2 {
+      @apply uppercase;
+    }
+    .content {
+      @apply flex flex-col items-center justify-center gap-2 w-full;
+    }
   }
 }

@@ -1,12 +1,39 @@
+import { useGSAP } from "@gsap/react";
 import { aboutImages } from "../constants";
+import gsap from "gsap";
+import { SplitText } from "gsap/SplitText";
 
 const About = () => {
+  useGSAP(() => {
+    const text = SplitText.create("#about > h1", { type: "words" });
+
+    const t1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#about",
+        start: "top center",
+        stagger: 0.05,
+      },
+    });
+
+    t1.from(text.words, {
+      yPercent: 100,
+      opacity: 0,
+      duration: 1,
+    });
+    t1.from("#content", {
+      yPercent: 100,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.04,
+    });
+  });
+
   return (
     <section
       id="about"
-      className="flex flex-col w-[90%] text-start item-center justify-between gap-2 h-auto mt-20"
+      className="flex flex-col pt-22 w-[90%] text-start item-center justify-between gap-6 h-auto mt-20"
     >
-      <button className="border w-[30%] p-2 rounded-full bg-white text-black capitalize">
+      <button className="border w-[50%] p-1 rounded-full bg-white text-black capitalize">
         best cocktails
       </button>
       <h1>Where every detail matters -from muddle to garnish </h1>
@@ -20,9 +47,15 @@ const About = () => {
       </span>
       <p>More than +12000 customers</p>
 
-      <ul className="grid grid-cols-1 grid-rows-5 gap-4 justify-items-center">
+      <ul
+        className="grid grid-cols-1 grid-rows-5 gap-4 justify-items-center"
+        >
         {aboutImages.map((ele, i) => (
-          <li key={i} className="border-0 relative rounded-4xl w-[90%] h-70 overflow-hidden">
+          <li
+          id="content"
+            key={i}
+            className="border-0 relative rounded-xl w-full h-29 overflow-hidden"
+          >
             <img
               className="size-full absolute object-cover object-center"
               src={ele}

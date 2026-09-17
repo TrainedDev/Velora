@@ -47,10 +47,10 @@ const Cocktails = () => {
 
         <ul className="flex-col-center justify-around gap-5 size-full">
           {cocktailLists.map((ele) => (
-            <li key={ele.name} className="flex text-[15px] flex-col w-[90%]">
+            <li key={ele.name} className="flex text-[12px] font-semibold flex-col w-[90%]">
               <span className="flex justify-between w-full">
                 <h3 className="text-yellow">{ele.name}</h3>
-                <p className="text-xl">-{ele.price}</p>
+                <p>-{ele.price}</p>
               </span>
 
               <p>
@@ -66,10 +66,10 @@ const Cocktails = () => {
 
         <ul className="flex-col-center justify-around gap-5 size-full">
           {mockTailLists.map((ele) => (
-            <li key={ele.name} className="flex text-[15px] flex-col w-[90%]">
+            <li key={ele.name} className="flex text-[12px] font-semibold  flex-col w-[90%]">
               <span className="flex justify-between w-full">
                 <h3 className="text-yellow">{ele.name}</h3>
-                <p className="text-xl">-{ele.price}</p>
+                <p>-{ele.price}</p>
               </span>
 
               <p>

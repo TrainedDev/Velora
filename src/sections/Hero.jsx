@@ -2,27 +2,25 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText, ScrollTrigger } from "gsap/all";
 import { useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
-gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const Hero = () => {
   const container = useRef(null);
   const headingRef = useRef(null);
   const paraRef = useRef(null);
   const videoRef = useRef();
+  const isMobile = useMediaQuery({ maxWidth: "640px" });
 
   useGSAP(
     () => {
       const heroSplit = new SplitText(headingRef.current, {
         type: "chars,words",
-        // wordsClass: "inline-block",
-        // charsClass: "inline-block",
       });
 
       const paraSplit = new SplitText(paraRef.current, {
         type: "lines",
-        // linesClass: "inline-block",
       });
 
       gsap.from(heroSplit.chars, {
@@ -55,22 +53,32 @@ const Hero = () => {
             trigger: "#hero-leaf",
             start: "top 55%",
             end: "bottom top",
-            // markers: true,
             scrub: true,
           },
         })
-        .to("#right-leaf", {
-          yPercent: 50,
-        }, 0)
-        .to("#left-leaf", {
-          yPercent: -100,
-        }, 0)
+        .to(
+          "#right-leaf",
+          {
+            yPercent: 50,
+          },
+          0,
+        )
+        .to(
+          "#left-leaf",
+          {
+            yPercent: -100,
+          },
+          0,
+        );
+
+      const start = isMobile ? "top 45%" : "top 45%";
+      const end = isMobile ? "bottom top" : "bottom top";
 
       const t1 = gsap.timeline({
         scrollTrigger: {
           trigger: "video",
-          start: "top 45%",
-          end: "bottom top",
+          start: start,
+          end: end,
           scrub: true,
           // markers: true,
           pin: true,
@@ -95,15 +103,15 @@ const Hero = () => {
         <div className="absolute inset-0 z-10 bg-[url('/images/noise.png')]" />
 
         {/* Content */}
-        <div className="relative z-20">
-          <div className="hero-content">
+        <div className="relative z-20 ">
+          <div className="hero-content size-full">
             <div className="hero-heading-wrapper">
               <h1 ref={headingRef} id="heading">
                 mojito
               </h1>
             </div>
 
-            <div className="hero-para-wrapper">
+            <div className="hero-para-wrapper text-wrap">
               <p ref={paraRef} id="para">
                 Every cocktail on our menu is a blend of premium ingredients,
                 creative flair, and timeless recipes — designed to delight your
@@ -113,19 +121,19 @@ const Hero = () => {
           </div>
         </div>
         {/* Leaves */}
-        <div id="hero-leaf" className="absolute top-100 z-10 h-[45%] w-full">
+        <div id="hero-leaf" className="absolute top-75 z-10 h-[60%] w-full">
           <h2>view cocktails</h2>
 
           <img
             id="left-leaf"
-            className="absolute left-0 top-1 h-full"
+            className="absolute -left-1 top-19 h-[55%]"
             src="/images/hero-left-leaf.png"
             alt=""
           />
 
           <img
             id="right-leaf"
-            className="absolute -top-25 right-0 h-[90%]"
+            className="absolute -top-19 right-0 h-[55%]"
             src="/images/hero-right-leaf.png"
             alt=""
           />
@@ -134,7 +142,7 @@ const Hero = () => {
         <video
           id="video"
           ref={videoRef}
-          className="absolute inset-x-0 bottom-0 w-full h-1/2 object-cover"
+          className="absolute inset-x-0 bottom-10 w-full object-center h-[40%] object-cover"
           playsInline
           muted
           preload="auto"
