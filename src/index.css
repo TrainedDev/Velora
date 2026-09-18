@@ -20,7 +20,7 @@
 html,
 body {
   width: 100%;
-  height: auto;
+  /* height: auto; */
   background-color: black;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -46,7 +46,7 @@ body {
 @layer base {
   /* --- H1 Styles --- */
   h1 {
-    @apply text-[13px] font-bold tracking-tight; /* Small Mobile default */
+    @apply text-[13px] xs:text-xl font-bold tracking-tight; /* Small Mobile default */
     @apply sm:text-3xl; /* Standard Mobile */
     @apply md:text-4xl; /* Tablet */
     @apply lg:text-5xl; /* Desktop */
@@ -54,7 +54,7 @@ body {
 
   /* --- H2 Styles --- */
   h2 {
-    @apply text-[13px] font-semibold; /* Small Mobile default */
+    @apply text-[13px] font-semibold xs:text-[16px]; /* Small Mobile default */
     @apply sm:text-2xl; /* Standard Mobile */
     @apply md:text-3xl; /* Tablet */
     @apply lg:text-4xl; /* Desktop */
@@ -62,14 +62,14 @@ body {
 
   /* --- Paragraph Styles --- */
   p {
-    @apply text-[11px] leading-relaxed; /* Small Mobile */
+    @apply text-[11px] leading-relaxed xs:text-[14px]; /* Small Mobile */
     @apply sm:text-sm; /* Standard Mobile */
     @apply md:text-base; /* Tablet & Desktop */
   }
 
   /* --- Button Styles --- */
   button {
-    @apply text-[10px] font-medium transition-colors; /* Small Mobile */
+    @apply text-[10px] font-medium transition-colors xs:text-[14px]; /* Small Mobile */
     @apply sm:text-sm; /* Standard Mobile & Tablet */
     @apply lg:text-base; /* Desktop */
   }
@@ -77,59 +77,70 @@ body {
 
 @layer components {
   main {
-    @apply flex flex-col items-center w-screen h-auto;
+    @apply w-screen overflow-x-hidden;
   }
 
   nav {
-    @apply justify-between w-full bg-black/40 h-20 overflow-hidden capitalize z-30 fixed;
+    @apply justify-between w-full bg-black/40 h-20 overflow-hidden capitalize z-30 fixed xs:h-22;
 
     div {
       @apply h-full w-full gap-2 flex justify-center items-center;
     }
 
     img {
-      @apply w-[9%] h-[50%];
+      @apply w-[9%] h-[50%] xs:h-[60%];
     }
 
     a {
-      @apply text-nowrap w-full text-[11px];
+      @apply text-nowrap w-full text-[11px] xs:text-[14px];
     }
 
     ul {
-      @apply h-full w-full flex justify-center items-center text-[13px] gap-2 ;
+      @apply h-full w-full flex justify-center items-center gap-2 xs:gap-5;
     }
   }
 
-  .bg-img {
-    @apply bg-[url('/images/noise.png')] inset-0 absolute size-full;
-  }
-  #hero {
-    @apply capitalize w-full relative min-h-dvh z-10 pt-22;
-  }
+#hero {
+  @apply capitalize relative w-full h-auto;
+}
+
+.body {
+  /* Change absolute to relative so the height works */
+  @apply relative z-10 min-h-dvh bg-[url('/images/noise.png')] w-full pt-22 xs:pt-26; 
+}
+
 
   .hero-content {
-    @apply flex flex-col items-center justify-center w-full gap-5;
-  }
+      @apply flex flex-col items-center h-[50%] justify-center w-full gap-5 z-20 ;
+    }
 
-  .hero-heading-wrapper {
-    @apply w-full;
-  }
+    .hero-heading-wrapper {
+      @apply w-full;
+    }
 
-  .hero-para-wrapper {
-    @apply w-[90%];
-  }
+    .hero-para-wrapper {
+      @apply w-[90%];
+    }
 
-  #heading {
-    @apply w-full uppercase text-center tracking-wide text-4xl font-semibold;
+    #heading {
+      @apply w-full uppercase text-center tracking-wide text-4xl font-semibold xs:text-5xl;
+    }
+    
+    #para {
+      @apply w-full tracking-wide text-start;
+    }
   }
+    /* .video {
+      @apply w-full absolute inset-0 z-0;
+    } */
 
-  #para {
-    @apply w-full tracking-wide text-start;
-  }
+     video {
+        @apply w-full md:h-[80%] -z-10 h-1/4 absolute bottom-0 left-0 md:object-contain object-bottom object-cover;
+    }
 
   .footer {
     h1 {
-      @apply  w-full flex items-center justify-center tracking-widest uppercase ;
+      @apply w-full flex items-center justify-center tracking-widest uppercase;
     }
     h2 {
       @apply uppercase;
@@ -138,4 +149,4 @@ body {
       @apply flex flex-col items-center justify-center gap-2 w-full;
     }
   }
-}
+

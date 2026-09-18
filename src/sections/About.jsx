@@ -31,9 +31,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col pt-22 w-[90%] text-start item-center justify-between gap-6 h-auto mt-20"
+      className="flex flex-col pt-22 w-[90%] text-start item-center justify-between gap-6 h-auto xs:pt-26"
     >
-      <button className="border w-[50%] p-1 rounded-full bg-white text-black capitalize">
+      <button className="border w-[50%] p-1 rounded-full bg-white text-black capitalize xs:p-1.5 xs:w-[60%]">
         best cocktails
       </button>
       <h1>Where every detail matters -from muddle to garnish </h1>
@@ -54,7 +54,7 @@ const About = () => {
           <li
           id="content"
             key={i}
-            className="border-0 relative rounded-xl w-full h-29 overflow-hidden"
+            className="border-0 relative rounded-xl w-full h-29 overflow-hidden xs:h-55"
           >
             <img
               className="size-full absolute object-cover object-center"

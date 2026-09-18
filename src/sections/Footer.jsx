@@ -30,7 +30,7 @@ const Footer = () => {
   return (
     <footer
     id="contact"
-     className=" min-h-dvh pt-22 flex-col-center w-full overflow-hidden relative radial-gradient [--gradient-size:20rem] [--gradient-y:50%]">
+     className="h-screen pt-22 flex-col-center w-full overflow-hidden relative radial-gradient [--gradient-size:20rem] [--gradient-y:50%] xs:pt-15">
       <div className="footer flex-col-center z-10 top-0 justify-center gap-5 size-full absolute">
         <h1>{heading}</h1>
         <div className="content w-[90%] text-center">

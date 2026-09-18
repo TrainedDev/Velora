@@ -34,7 +34,7 @@ const Menu = () => {
       id="menu"
       className="flex-col-center pt-22 justify-center h-auto w-full"
     >
-        <img className="rotate-180 relative size-[40%] -right-15" src="images/slider-left-leaf.png" />
+        <img className="rotate-180 relative size-[40%] -right-15 xs:-right-30" src="images/slider-left-leaf.png" />
       <ul className="grid grid-cols-2 w-full justify-items-center h-40 gap-2">
         {allCocktails?.map((ele, i) => (
           <li
@@ -103,7 +103,7 @@ const Menu = () => {
         </div>
       </div>
       
-<img src="images/slider-right-leaf.png" className="rotate-180 size-[30%] relative -left-18" />
+<img src="images/slider-right-leaf.png" className="rotate-180 size-[30%] relative -left-18 xs:-left-33" />
     </section>
   );
 };

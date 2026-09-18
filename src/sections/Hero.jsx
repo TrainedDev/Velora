@@ -11,7 +11,8 @@ const Hero = () => {
   const headingRef = useRef(null);
   const paraRef = useRef(null);
   const videoRef = useRef();
-  const isMobile = useMediaQuery({ maxWidth: "640px" });
+  const isSmallDevice = useMediaQuery({ maxWidth: "320px" });
+  // const isSmallDevice = useMediaQuery({ maxWidth: "320px" });
 
   useGSAP(
     () => {
@@ -59,7 +60,7 @@ const Hero = () => {
         .to(
           "#right-leaf",
           {
-            yPercent: 50,
+            yPercent: 100,
           },
           0,
         )
@@ -71,16 +72,16 @@ const Hero = () => {
           0,
         );
 
-      const start = isMobile ? "top 45%" : "top 45%";
-      const end = isMobile ? "bottom top" : "bottom top";
+      const start = isSmallDevice ? "top 45%" : "top 45%";
+      const end = isSmallDevice ? "bottom top" : "bottom top";
 
       const t1 = gsap.timeline({
         scrollTrigger: {
           trigger: "video",
           start: start,
           end: end,
-          scrub: true,
-          // markers: true,
+          scrub: 1,
+          markers: true,
           pin: true,
         },
       });
@@ -99,11 +100,7 @@ const Hero = () => {
   return (
     <>
       <section ref={container} id="hero">
-        {/* Noise */}
-        <div className="absolute inset-0 z-10 bg-[url('/images/noise.png')]" />
-
-        {/* Content */}
-        <div className="relative z-20 ">
+        <div className="body">
           <div className="hero-content size-full">
             <div className="hero-heading-wrapper">
               <h1 ref={headingRef} id="heading">
@@ -119,35 +116,34 @@ const Hero = () => {
               </p>
             </div>
           </div>
-        </div>
-        {/* Leaves */}
-        <div id="hero-leaf" className="absolute top-75 z-10 h-[60%] w-full">
-          <h2>view cocktails</h2>
 
-          <img
-            id="left-leaf"
-            className="absolute -left-1 top-19 h-[55%]"
-            src="/images/hero-left-leaf.png"
-            alt=""
-          />
+          <div id="hero-leaf" className="absolute top-75 z-10 h-[50%] w-full">
+            <h2>view cocktails</h2>
 
-          <img
-            id="right-leaf"
-            className="absolute -top-19 right-0 h-[55%]"
-            src="/images/hero-right-leaf.png"
-            alt=""
-          />
+            <img
+              id="left-leaf"
+              className="absolute -left-2 top-5 h-[45%]"
+              src="/images/hero-left-leaf.png"
+              alt=""
+            />
+
+            <img
+              id="right-leaf"
+              className="absolute -top-1 right-0 h-[50%]"
+              src="/images/hero-right-leaf.png"
+              alt=""
+            />
+          </div>
+          <div className="video">
+            <video
+              ref={videoRef}
+              playsInline
+              muted
+              preload="auto"
+              src="/videos/output.mp4"
+            />
+          </div>
         </div>
-        {/* Video */}
-        <video
-          id="video"
-          ref={videoRef}
-          className="absolute inset-x-0 bottom-10 w-full object-center h-[40%] object-cover"
-          playsInline
-          muted
-          preload="auto"
-          src="/videos/output.mp4"
-        />
       </section>
     </>
   );
