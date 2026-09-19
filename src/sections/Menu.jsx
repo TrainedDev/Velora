@@ -34,7 +34,7 @@ const Menu = () => {
       id="menu"
       className="flex-col-center pt-22 justify-center h-auto w-full"
     >
-        <img className="rotate-180 relative size-[40%] -right-15 xs:-right-30" src="images/slider-left-leaf.png" />
+        <img className="rotate-180 relative size-[40%] -right-15 xs:-right-40 sm:-right-75 md:-right-80 sm:size-[27%]" src="images/slider-left-leaf.png" />
       <ul className="grid grid-cols-2 w-full justify-items-center h-40 gap-2">
         {allCocktails?.map((ele, i) => (
           <li
@@ -80,8 +80,8 @@ const Menu = () => {
         </div>
       </div>
 
-      <div className="w-[95%] h-120 radial-gradient [--gradient-size:18rem] [--gradient-y:30%] relative">
-        <div className="cocktail flex items-end absolute justify-center w-full h-[55%]">
+      <div className="w-[95%] h-120 radial-gradient [--gradient-size:18rem] [--gradient-y:30%] sm:[--gradient-size:28rem] relative">
+        <div className="cocktail flex items-end absolute justify-center w-full h-[55%] sm:h-[65%]">
           <img
             src={cocktail(currentIndex)?.image}
             id="cocktail"
@@ -103,7 +103,7 @@ const Menu = () => {
         </div>
       </div>
       
-<img src="images/slider-right-leaf.png" className="rotate-180 size-[30%] relative -left-18 xs:-left-33" />
+<img src="images/slider-right-leaf.png" className="rotate-180 size-[30%] relative -left-18 xs:-left-30 sm:size-[25%] sm:-left-70 " />
     </section>
   );
 };

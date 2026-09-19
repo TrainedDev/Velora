@@ -49,14 +49,14 @@ const Art = () => {
         className="w-full flex-col-center justify-start h-auto capitalize radial-gradient [--gradient-size:20rem] [--gradient-y:75%] xs:[--gradient-size:28rem] xs:[--gradient-y:82%]"
       >
         <div className="flex-col-center items-center relative w-full min-h-dvh">
-          <div className="flex absolute justify-center items-end w-full h-[65%] xs:h-[70%]">
+          <div className="flex absolute justify-center items-end w-full h-[65%] xs:h-[75%]">
             <h1
               id="art-heading"
-              className="absolute tracking-widest font-extrabold h-[60%] w-full flex-row-center justify-center text-3xl xs:text-6xl"
+              className="absolute tracking-widest font-extrabold h-[60%] w-full flex-row-center justify-center text-3xl xs:text-6xl sm:text-7xl "
             >
               the art
             </h1>
-            <div className="absolute overflow-hidden rounded-[7%] flex items-end justify-center h-[60%] w-full xs:h-[70%]">
+            <div className="absolute overflow-hidden rounded-[7%] flex items-end justify-center h-[60%] w-full xs:h-[70%] sm:h-[75%] sm:w-[90%] md:w-[65%]">
               <img
                 id="art-img"
                 className="masked-img size-full object-center object-cover"
@@ -67,7 +67,7 @@ const Art = () => {
 
             <ul
               id="art-feature"
-              className="absolute -bottom-42 flex-col-center justify-end w-full gap-5 xs:-bottom-40 xs:gap-4"
+              className="absolute -bottom-42 flex-col-center justify-end w-full gap-5 xs:-bottom-35 xs:gap-4 sm:-bottom-25 sm:gap-4"
             >
               {featureLists.map((ele, i) => (
                 <li
@@ -85,7 +85,7 @@ const Art = () => {
       <div className="flex-col-center relative capitalize justify-end w-[80%] h-20 text-center gap-5 xs:h-40 xs:w-[95%]">
         <h1 className="w-full">made with craft, poured with passion</h1>
 
-        <p className="w-full text-start">
+        <p className="w-full text-start xs:w-[90%] xs:text-[15px] sm:text-center">
           this isn't just a drink.it's a carefully crafted moment made just for
           you.
         </p>

@@ -2,7 +2,7 @@ import { navLinks } from "../constants";
 
 const Navbar = () => {
   return (
-    <nav className="flex-col-center">
+    <nav>
       <div>
         <img src="/images/logo.png" alt="logo" />
         <h1>velvet pour</h1>

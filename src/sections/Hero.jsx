@@ -12,7 +12,7 @@ const Hero = () => {
   const paraRef = useRef(null);
   const videoRef = useRef();
   const isSmallDevice = useMediaQuery({ maxWidth: "320px" });
-  // const isSmallDevice = useMediaQuery({ maxWidth: "320px" });
+  const isLargeDevice = useMediaQuery({ minWidth: "768px" });
 
   useGSAP(
     () => {
@@ -72,16 +72,16 @@ const Hero = () => {
           0,
         );
 
-      const start = isSmallDevice ? "top 45%" : "top 45%";
+      const start = isSmallDevice ? "top 55%" : "top 40%";
       const end = isSmallDevice ? "bottom top" : "bottom top";
 
       const t1 = gsap.timeline({
         scrollTrigger: {
-          trigger: "video",
+          trigger: videoRef.current,
           start: start,
           end: end,
-          scrub: 1,
-          markers: true,
+          scrub: true,
+          // markers: true,
           pin: true,
         },
       });
@@ -99,16 +99,22 @@ const Hero = () => {
 
   return (
     <>
-      <section ref={container} id="hero">
+      <section ref={container} id="hero" >
         <div className="body">
-          <div className="hero-content size-full">
+          <div className="hero-content">
             <div className="hero-heading-wrapper">
               <h1 ref={headingRef} id="heading">
                 mojito
               </h1>
             </div>
 
-            <div className="hero-para-wrapper text-wrap">
+            <div className="hero-para-wrapper ">
+              <div className="md:block">
+                <p>cool. crisp. classic.</p>
+                <h1>
+                  sip the spirit of the summer
+                </h1>
+              </div>
               <p ref={paraRef} id="para">
                 Every cocktail on our menu is a blend of premium ingredients,
                 creative flair, and timeless recipes — designed to delight your
@@ -117,24 +123,26 @@ const Hero = () => {
             </div>
           </div>
 
-          <div id="hero-leaf" className="absolute top-75 z-10 h-[50%] w-full">
-            <h2>view cocktails</h2>
+          <div id="hero-leaf" className="absolute top-75 -z-10 h-[50%] w-full sm:top-78 bg-green-400 md:h-[80%] md:top-30">
+            <h2 className='md:hidden'>view cocktails</h2>
 
             <img
               id="left-leaf"
-              className="absolute -left-2 top-5 h-[45%]"
+              className="absolute -left-2 top-5 h-[45%] xs:left-0 xs:h-[80%] xs:top-15 sm:h-[105%] sm:top-0 md:h-[85%] md:top-1"
               src="/images/hero-left-leaf.png"
               alt=""
             />
 
             <img
               id="right-leaf"
-              className="absolute -top-1 right-0 h-[50%]"
+              className="absolute -top-1 right-0 h-[50%] xs:-top-15 xs:h-[75%] sm:h-[95%]"
               src="/images/hero-right-leaf.png"
               alt=""
             />
           </div>
-          <div className="video">
+        </div>
+      </section>
+          <div className="video ">
             <video
               ref={videoRef}
               playsInline
@@ -143,8 +151,6 @@ const Hero = () => {
               src="/videos/output.mp4"
             />
           </div>
-        </div>
-      </section>
     </>
   );
 };
