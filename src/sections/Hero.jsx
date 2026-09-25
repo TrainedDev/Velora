@@ -12,7 +12,7 @@ const Hero = () => {
   const paraRef = useRef(null);
   const videoRef = useRef();
   const isSmallDevice = useMediaQuery({ maxWidth: "320px" });
-  const isLargeDevice = useMediaQuery({ minWidth: "768px" });
+  const isMidDevice = useMediaQuery({ maxWidth: "1019px" });
 
   useGSAP(
     () => {
@@ -20,8 +20,14 @@ const Hero = () => {
         type: "chars,words",
       });
 
-      const paraSplit = new SplitText(paraRef.current, {
+      const para1Split = new SplitText(".para1", {
         type: "lines",
+        // linesClass: "para-line",
+      });
+
+      const para2Split = new SplitText("#para2", {
+        type: "lines",
+        linesClass: "inline-block",
       });
 
       gsap.from(heroSplit.chars, {
@@ -33,7 +39,23 @@ const Hero = () => {
       });
 
       gsap.fromTo(
-        paraSplit.lines,
+        para1Split.lines,
+        {
+          opacity: 0,
+          yPercent: 100,
+        },
+        {
+          opacity: 1,
+          yPercent: 0,
+          ease: "expo.out",
+          duration: 1,
+          delay: 1,
+          stagger: 0.05,
+        },
+      );
+
+      gsap.fromTo(
+        para2Split.lines,
         {
           opacity: 0,
           yPercent: 100,
@@ -72,8 +94,8 @@ const Hero = () => {
           0,
         );
 
-      const start = isSmallDevice ? "top 55%" : "top 40%";
-      const end = isSmallDevice ? "bottom top" : "bottom top";
+      const start = isSmallDevice ? "top 55%" : isMidDevice ? "top center": "40% center";
+      const end = isSmallDevice ? "bottom top" : isMidDevice? "center top":  "700px top";
 
       const t1 = gsap.timeline({
         scrollTrigger: {
@@ -81,7 +103,7 @@ const Hero = () => {
           start: start,
           end: end,
           scrub: true,
-          // markers: true,
+          markers: true,
           pin: true,
         },
       });
@@ -99,7 +121,7 @@ const Hero = () => {
 
   return (
     <>
-      <section ref={container} id="hero" >
+      <section ref={container} id="hero">
         <div className="body">
           <div className="hero-content">
             <div className="hero-heading-wrapper">
@@ -108,14 +130,12 @@ const Hero = () => {
               </h1>
             </div>
 
-            <div className="hero-para-wrapper ">
-              <div className="md:block">
-                <p>cool. crisp. classic.</p>
-                <h1>
-                  sip the spirit of the summer
-                </h1>
+            <div ref={paraRef} className="hero-para-wrapper ">
+              <div>
+                <p className="para1">cool. crisp. classic.</p>
+                <h2 className="para1">sip the spirit of the summer</h2>
               </div>
-              <p ref={paraRef} id="para">
+              <p id="para2">
                 Every cocktail on our menu is a blend of premium ingredients,
                 creative flair, and timeless recipes — designed to delight your
                 senses.
@@ -123,34 +143,37 @@ const Hero = () => {
             </div>
           </div>
 
-          <div id="hero-leaf" className="absolute top-75 -z-10 h-[50%] w-full sm:top-78 bg-green-400 md:h-[80%] md:top-30">
-            <h2 className='md:hidden'>view cocktails</h2>
+          <div
+            id="hero-leaf"
+            className="absolute top-75 -z-10 h-[50%] w-full bg-green-600 sm:top-78 md:h-[80%] md:top-30"
+          >
+            <h2 className="md:hidden">view cocktails</h2>
 
             <img
               id="left-leaf"
-              className="absolute -left-2 top-5 h-[45%] xs:left-0 xs:h-[80%] xs:top-15 sm:h-[105%] sm:top-0 md:h-[85%] md:top-1"
+              className="absolute -left-2 top-5 h-[45%] xs:left-0 xs:h-[80%] xs:top-15 sm:h-[105%] sm:top-0 md:h-[50%] md:top-70 lg:top-60 lg:h-[90%]"
               src="/images/hero-left-leaf.png"
               alt=""
             />
 
             <img
               id="right-leaf"
-              className="absolute -top-1 right-0 h-[50%] xs:-top-15 xs:h-[75%] sm:h-[95%]"
+              className="absolute -top-1 right-0 h-[50%] xs:-top-15 xs:h-[75%] sm:h-[95%] md:h-[50%] md:-top-80 lg:h-[90%] lg:-top-80"
               src="/images/hero-right-leaf.png"
               alt=""
             />
           </div>
         </div>
       </section>
-          <div className="video ">
-            <video
-              ref={videoRef}
-              playsInline
-              muted
-              preload="auto"
-              src="/videos/output.mp4"
-            />
-          </div>
+      <div className="video">
+        <video
+          ref={videoRef}
+          playsInline
+          muted
+          preload="auto"
+          src="/videos/output.mp4"
+        />
+      </div>
     </>
   );
 };
