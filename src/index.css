@@ -1,4 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Modern Negra";
+    src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
+}
 
 .flex-col-center {
   @apply flex flex-col items-center;
@@ -34,6 +40,13 @@ body {
   mask-size: 50%;
 }
 
+@utility text-gradient {
+    background: linear-gradient(to bottom, #ffffff, #898989);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 @utility radial-gradient {
   background: radial-gradient(
     circle var(--gradient-size, 35rem) at 50% var(--gradient-y, 80%),
@@ -46,7 +59,7 @@ body {
 @layer base {
   /* --- H1 Styles --- */
   h1 {
-    @apply text-[13px] xs:text-xl font-bold tracking-tight; /* Small Mobile default */
+    @apply text-[13px] xs:text-xl font-bold tracking-tight font-modern-negra; /* Small Mobile default */
     @apply sm:text-3xl; /* Standard Mobile */
     @apply md:text-4xl; /* Tablet */
     @apply lg:text-5xl; /* Desktop */
@@ -54,7 +67,7 @@ body {
 
   /* --- H2 Styles --- */
   h2 {
-    @apply text-[13px] font-semibold xs:text-[16px]; /* Small Mobile default */
+    @apply text-[13px] font-semibold xs:text-[16px] font-modern-negra; /* Small Mobile default */
     @apply sm:text-2xl; /* Standard Mobile */
     @apply md:text-3xl; /* Tablet */
     @apply lg:text-4xl; /* Desktop */
@@ -64,7 +77,7 @@ body {
   p {
     @apply text-[11px] leading-relaxed xs:text-[15px]; /* Small Mobile */
     @apply sm:text-sm; /* Standard Mobile */
-    @apply md:text-[17px]; /* Tablet & Desktop */
+    @apply md:text-[20px]; /* Tablet & Desktop */
   }
 
   /* --- Button Styles --- */
@@ -121,7 +134,7 @@ body {
   }
 
   .hero-para-wrapper {
-    @apply w-full bg-yellow-400 flex justify-center items-center md:justify-between md:items-center md:h-[49%] lg:h-[70%] lg:items-start lg:w-[90%];
+    @apply w-full flex justify-center items-center md:justify-between md:items-center md:h-[49%] lg:h-[70%] lg:items-start lg:w-[90%];
     > div {
       @apply hidden w-[40%] md:flex flex-col justify-start items-center gap-10 lg:h-full lg:w-[30%];
 
@@ -133,8 +146,8 @@ body {
       }
     }
     #para2 {
-      @apply w-[90%] tracking-wide text-start xs:tracking-wider
-      sm:w-[75%] sm:text-[15px] md:w-[40%] md:text-2xl lg:tracking-normal lg:text-[18px] lg:w-[30%] lg:h-full;
+      @apply w-[90%]  tracking-wide text-start xs:tracking-wider
+      sm:w-[75%] sm:text-[15px] md:w-[40%] md:text-xl lg:tracking-normal lg:text-[18px] lg:w-[30%] lg:h-full;
     }
   }
 

@@ -75,9 +75,9 @@ export const mockTailLists = [
 export const aboutImages = [
 	'/images/abt1.png',
 	'/images/abt2.png',
+	'/images/abt5.png',
 	'/images/abt3.png',
 	'/images/abt4.png',
-	'/images/abt5.png',
 ];
 
 export const featureLists = [

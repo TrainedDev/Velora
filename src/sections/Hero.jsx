@@ -103,7 +103,7 @@ const Hero = () => {
           start: start,
           end: end,
           scrub: true,
-          markers: true,
+          // markers: true,
           pin: true,
         },
       });
@@ -145,7 +145,7 @@ const Hero = () => {
 
           <div
             id="hero-leaf"
-            className="absolute top-75 -z-10 h-[50%] w-full bg-green-600 sm:top-78 md:h-[80%] md:top-30"
+            className="absolute top-75 -z-10 h-[50%] w-full sm:top-78 md:h-[80%] md:top-30"
           >
             <h2 className="md:hidden">view cocktails</h2>
 
@@ -158,7 +158,7 @@ const Hero = () => {
 
             <img
               id="right-leaf"
-              className="absolute -top-1 right-0 h-[50%] xs:-top-15 xs:h-[75%] sm:h-[95%] md:h-[50%] md:-top-80 lg:h-[90%] lg:-top-80"
+              className="absolute -top-1 right-0 h-[50%] xs:-top-15 xs:h-[75%] sm:h-[95%] md:h-[50%] md:-top-50 lg:h-[90%] lg:-top-80"
               src="/images/hero-right-leaf.png"
               alt=""
             />

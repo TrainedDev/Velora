@@ -32,7 +32,7 @@ const Footer = () => {
      className="h-auto flex-col-center relative overflow-hidden w-full">
       <div
     id="contact"
-      className="footer flex-col-center z-10 top-0 justify-center gap-5 w-full h-200 radial-gradient [--gradient-size:25rem] [--gradient-y:50%] relative xs:pt-22 sm:pt-3">
+      className="footer flex-col-center z-10 top-0 justify-center gap-10 xs:gap-15 w-full h-200 radial-gradient [--gradient-size:30rem] [--gradient-y:55%] sm:[--gradient-size:40rem] relative xs:pt-22 sm:pt-3 md:pt-0 md:h-250 lg:pt-20">
         <h1>{heading}</h1>
         <div className="content w-[90%] text-center">
           <h2>visit our bar</h2>
@@ -73,11 +73,11 @@ const Footer = () => {
       </div>
 
       <img
-        className="w-[40%] f-left-leaf absolute z-0 bottom-5 left-0 xs:w-[30%] xs:bottom-20 sm:w-[25%]"
+        className="w-[40%] f-left-leaf absolute z-10 bottom-5 left-0 xs:w-[30%] xs:bottom-20 sm:w-[25%]"
         src="/images/footer-left-leaf.png"
       />
       <img
-        className="w-[35%] f-right-leaf absolute z-0 top-25 right-0 xs:w-[30%] sm:w-[25%]"
+        className="w-[35%] f-right-leaf absolute z-10 top-25 right-0 xs:w-[30%] sm:w-[25%]"
         src="/images/footer-right-leaf.png"
       />
     </footer>
