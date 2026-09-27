@@ -38,6 +38,8 @@ const Hero = () => {
         duration: 1,
       });
 
+      heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
+      
       gsap.fromTo(
         para1Split.lines,
         {

@@ -59,7 +59,7 @@ const Art = () => {
           <div className="flex absolute justify-center items-end w-full h-[65%] xs:h-[75%] ">
             <h1
               id="art-heading"
-              className="absolute tracking-widest font-extrabold h-[60%] w-full flex items-center justify-center text-3xl top-20 xs:top-30 xs:text-6xl sm:text-7xl md:h-[80%] md:text-9xl md:items-start"
+              className="absolute tracking-widest font-extrabold h-[60%] w-full flex items-center justify-center text-3xl top-20 xs:top-30 xs:text-6xl sm:text-7xl md:h-[80%] md:text-9xl md:items-start lg:text-[14rem] text-white/40 lg:top-20"
             >
               the ART
             </h1>
@@ -74,7 +74,7 @@ const Art = () => {
 
             <div
               id="art-feature"
-              className="absolute flex flex-col items-center justify-around w-full -bottom-40 gap-10 xs:flex-row xs:-bottom-25 md:gap-60 md:bottom-10"
+              className="absolute flex flex-col items-center justify-around w-full -bottom-40 gap-10 xs:flex-row xs:-bottom-25 md:gap-60 md:bottom-10 lg:-bottom-20 lg:justify-between lg:w-[97%]"
             >
               <ul className="flex flex-col-center justify-end w-fit gap-5 ">
                 {goodLists.map((ele, i) => (
@@ -103,7 +103,7 @@ const Art = () => {
           </div>
           <h1
             id="worthy_sip"
-            className="hidden absolute bottom-20 md:flex-row-center justify-center md:block w-full capitalize font-bold"
+            className="hidden absolute bottom-20 md:flex-row-center justify-center md:block w-full capitalize font-bold xl:hidden"
           >
             sip-worthy perfection
           </h1>

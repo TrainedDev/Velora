@@ -47,21 +47,23 @@ const Cocktails = () => {
         src="/images/cocktail-right-leaf.png"
         alt=""
       />
-      <div className="flex relative flex-col items-start justify-between capitalize w-full gap-2 z-10 mb-10">
-        <h2>most popular cocktails:</h2>
+      <div className="flex relative flex-col items-start justify-between capitalize w-full gap-2 md:gap-5 z-10 md:p-10">
+        <h3>most popular cocktails:</h3>
 
         <ul className="flex-col-center justify-around gap-5 size-full">
           {cocktailLists.map((ele) => (
             <li
               key={ele.name}
-              className="flex text-[12px] font-semibold flex-col w-[90%] xs:text-[14px] sm:text-[17px]"
+              className="flex text-[12px] font-semibold flex-col w-[90%] md:w-full xs:text-[14px] sm:text-[17px] md:text-xl"
             >
               <span className="flex justify-between w-full">
-                <h3 className="text-yellow">{ele.name}</h3>
-                <p>-{ele.price}</p>
+                <h3 className="text-yellow font-modern-negra tracking-wider">
+                  {ele.name}
+                </h3>
+                <p className="xs:text-[15px]">-{ele.price}</p>
               </span>
 
-              <p>
+              <p className="xs:text-[15px]">
                 {ele.country} | {ele.detail}
               </p>
             </li>
@@ -69,21 +71,23 @@ const Cocktails = () => {
         </ul>
       </div>
 
-      <div className="flex relative flex-col items-start justify-between capitalize w-full gap-2 z-10 mb-10">
-        <h2>most loved mocktails:</h2>
+      <div className="flex relative flex-col items-start justify-between capitalize w-full gap-2 md:gap-5 z-10 mb-10 md:p-10">
+        <h3>most loved mocktails:</h3>
 
         <ul className="flex-col-center justify-around gap-5 size-full">
           {mockTailLists.map((ele) => (
             <li
               key={ele.name}
-              className="flex text-[12px] font-semibold  flex-col w-[90%]  xs:text-[14px] sm:text-[17px]"
+              className="flex text-[12px] font-semibold  flex-col w-[90%] md:w-full  xs:text-[14px] sm:text-[17px] md:text-xl"
             >
               <span className="flex justify-between w-full">
-                <h3 className="text-yellow">{ele.name}</h3>
-                <p>-{ele.price}</p>
+                <h3 className="text-yellow font-modern-negra tracking-wider">
+                  {ele.name}
+                </h3>
+                <p className="xs:text-[15px]">-{ele.price}</p>
               </span>
 
-              <p>
+              <p className="xs:text-[15px]">
                 {ele.country} | {ele.detail}
               </p>
             </li>

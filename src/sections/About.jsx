@@ -38,7 +38,7 @@ const About = () => {
           <button className="border w-[50%] p-1 rounded-full bg-white text-black capitalize xs:p-1.5 xs:w-[60%] sm:w-[30%] sm:p-4 md:p-2">
             best cocktails
           </button>
-          <h1>Where every detail matters -from muddle to garnish </h1>
+          <h2 className="font-modern-negra tracking-wider text-5xl">Where every detail matters -from muddle to garnish </h2>
         </div>
         <div className="flex flex-col w-full gap-6 justify-start md:gap-8 md:w-2/6">
           <p>
@@ -47,7 +47,7 @@ const About = () => {
             turns a simple drink into something truly memorable.
           </p>
           <span className="flex">
-            <h1>4.5</h1>/<p>5</p>
+            <h1 className="text-yellow">4.5</h1>/<p>5</p>
           </span>
           <p>More than +12000 customers</p>
         </div>

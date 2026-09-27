@@ -35,10 +35,10 @@ const Menu = () => {
       className="flex-col-center pt-22 justify-center h-auto w-full p-5 radial-gradient [--gradient-size:18rem] [--gradient-y:50%] xs:[--gradient-size:42rem] xs:[--gradient-y:50%]  sm:[--gradient-size:45rem]"
     >
       <img
-        className="rotate-180 relative size-[40%] -right-15 xs:-right-40 sm:-right-75 md:-right-80 sm:size-[27%]"
+        className="rotate-180 relative size-[40%] -right-15 xs:-right-40 sm:-right-75 md:-right-80 sm:size-[27%] lg:-right-150"
         src="images/slider-left-leaf.png"
       />
-      <ul className="grid grid-cols-2 w-full justify-items-center h-40 gap-2">
+      <ul className="grid grid-cols-2 w-full justify-items-center h-40 gap-2 font-modern-negra tracking-wider lg:flex lg:gap-15 lg:h-20 lg:font-extralight">
         {allCocktails?.map((ele, i) => (
           <li
             key={i}
@@ -50,7 +50,7 @@ const Menu = () => {
         ))}
       </ul>
 
-      <div className="flex-row-center justify-between w-full text-center h-30">
+      <div className="flex-row-center justify-between w-full text-center h-30 font-modern-negra tracking-wider">
         <div className="flex-col-center items-start cursor-pointer w-fit">
           <h2>
             {currentIndex === 0
@@ -95,7 +95,7 @@ const Menu = () => {
         <div className="absolute bottom-0 h-[40%] flex flex-col gap-4 w-full xs:-bottom-10 md:flex-row lg:bottom-65">
           <div className="flex flex-col h-[30%] w-full gap-3 lg:h-full lg:justify-center">
             <p>Recipe For:</p>
-            <h1>{cocktail(currentIndex).name}</h1>
+            <h1 className="font-modern-negra text-yellow tracking-wider">{cocktail(currentIndex).name}</h1>
           </div>
           <div className="h-[70%] flex flex-col items-start gap-5 lg:w-[70%]">
             <h1>{cocktail(currentIndex).title}</h1>
