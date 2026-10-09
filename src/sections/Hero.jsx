@@ -104,15 +104,17 @@ const Hero = () => {
           trigger: videoRef.current,
           start: start,
           end: end,
-          scrub: true,
+          scrub: 0.5,
           // markers: true,
           pin: true,
+          anticipatePin: 1,
         },
       });
 
       videoRef.current.onloadedmetadata = () => {
         t1.to(videoRef.current, {
           currentTime: videoRef.current.duration,
+          ease:"none"
         });
       };
     },

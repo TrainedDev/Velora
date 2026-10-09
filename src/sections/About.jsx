@@ -31,7 +31,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="flex flex-col pt-22 w-full text-start items-center justify-center gap-6 h-auto xs:pt-26"
+      className="flex flex-col pt-22 w-[full] text-start items-center justify-center gap-6 h-auto  p-4 xs:pt-26"
     >
       <div className="flex flex-col w-full item-center justify-center gap-6 md:gap-70 md:flex md:flex-row md:justify-center">
         <div className="flex flex-col w-full gap-6 justify-start md:w-2/5">
@@ -53,7 +53,7 @@ const About = () => {
         </div>
       </div>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center w-[90%] px-4 md:px-0 xl:grid-cols-12">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 justify-items-center w-full xl:grid-cols-12">
         {aboutImages.map((ele, i) => (
           <li
             id={`content`}

@@ -59,11 +59,11 @@ const Art = () => {
           <div className="flex absolute justify-center items-end w-full h-[65%] xs:h-[75%] ">
             <h1
               id="art-heading"
-              className="absolute tracking-widest font-extrabold h-[60%] w-full flex items-center justify-center text-3xl top-20 xs:top-30 xs:text-6xl sm:text-7xl md:h-[80%] md:text-9xl md:items-start lg:text-[14rem] text-white/40 lg:top-20"
+              className="absolute tracking-widest font-extrabold h-[60%] w-full flex items-center justify-center text-3xl top-35 xs:text-6xl sm:top-40 sm:text-7xl md:h-[80%] md:text-9xl md:top-10 lg:text-[8rem] lg:text-wider text-white/40 lg:top-20 xl:top-40"
             >
               the ART
             </h1>
-            <div className="absolute overflow-hidden rounded-[7%] flex items-end justify-center h-[60%] w-full top-20 xs:top-30 xs:h-[70%] sm:h-[75%] sm:w-[90%] md:w-[65%] md:top-50">
+            <div className="absolute overflow-hidden rounded-[7%] flex items-end justify-center h-[60%] w-full top-35 xs:h-[55%] sm:top-40 sm:h-[70%] sm:w-[90%] md:w-[65%] md:top-10 xl:top-20 xl:h-[90%]">
               <img
                 id="art-img"
                 className="masked-img size-full object-center object-cover"
@@ -74,7 +74,7 @@ const Art = () => {
 
             <div
               id="art-feature"
-              className="absolute flex flex-col items-center justify-around w-full -bottom-40 gap-10 xs:flex-row xs:-bottom-25 md:gap-60 md:bottom-10 lg:-bottom-20 lg:justify-between lg:w-[97%]"
+              className="absolute flex flex-row items-center justify-around w-full gap-2 -bottom-40 xs:-bottom-35 sm:justify-between sm:p-2 md:-bottom-15 lg:-bottom-20 lg:justify-between lg:w-[97%]"
             >
               <ul className="flex flex-col-center justify-end w-fit gap-5 ">
                 {goodLists.map((ele, i) => (
@@ -103,7 +103,7 @@ const Art = () => {
           </div>
           <h1
             id="worthy_sip"
-            className="hidden absolute bottom-20 md:flex-row-center justify-center md:block w-full capitalize font-bold xl:hidden"
+            className="hidden absolute bottom-10 md:flex-row-center text-center justify-center md:block w-full capitalize font-bold xl:hidden"
           >
             sip-worthy perfection
           </h1>
